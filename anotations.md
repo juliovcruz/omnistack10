@@ -40,3 +40,15 @@ Propriedade = Atributos passados entre componentes (parecido com parâmetros de 
 
 Estado =  Informações do componente (Funções set , imutabilidade)
  
+
+#### Settings.json VSCode
+
+Plugin para auxiliar no complete do js e react
+
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx",
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+    }
+
