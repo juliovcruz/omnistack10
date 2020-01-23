@@ -1,0 +1,8 @@
+# LOGS
+*.log
+logs
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency
+node_modules/
