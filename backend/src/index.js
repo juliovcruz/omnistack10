@@ -15,6 +15,7 @@ app.use(express.json());
 // yarn add
 // express nodemon mongoose
 // axios = chamada para outras API
+// yarn create react-app web
 
 /* METODOS HTTP:
 --------get, post, put delete--------
