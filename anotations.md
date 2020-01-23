@@ -10,12 +10,11 @@ axios(Chamada para outras API) ,
 }
 
 ### METODOS HTTP:
---------get, post, put delete--------
+
 GET = Receber informação da aplicação
 POST = Criar um recurso na aplicação
 PUT = Editar um recurso na aplicação
 DELETE = Deletar um recurso na aplicação
--------------------------------------
 
 ### Tipos de paramêtros:
 
@@ -30,3 +29,14 @@ Body: request.body (Dados para criação ou alteração de um registro)
 ### YARN
 
 yarn create react-app "folder_name"
+
+# REACT
+
+## CONCEITOS
+
+Componente = Função que retorna conteúdo(HTML, CSS, JS)
+
+Propriedade = Atributos passados entre componentes (parecido com parâmetros de função)
+
+Estado =  Informações do componente (Funções set , imutabilidade)
+ 
