@@ -1,15 +1,15 @@
-const Dev = require('../models/Dev');
+const Poke = require('../models/Dev');
 
 module.exports = {
     async index(request,response){
-        const { latitude, longitude, techs } = request.query;
+        const { latitude, longitude, types } = request.query;
         //busca
 
-        const techsArray = techs.split(',').map(tech => tech.trim());
+        const typesArray = types.split(',').map(typ => typ.trim());
 
-        const devs = await Dev.find({
+        const pokes = await Poke.find({
             techs: {
-                $in: techsArray,
+                $in: typesArray,
             },
             location:{
                 $near:{
@@ -22,6 +22,6 @@ module.exports = {
             }
         });
 
-        return response.json(devs);
+        return response.json(pokes);
     }
 }

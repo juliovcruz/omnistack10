@@ -1,16 +1,15 @@
 const mongoose = require('mongoose');
 const PointSchema = require('./utils/PointSchema');
 
-const DevSchema = new mongoose.Schema({
+const PokeSchema = new mongoose.Schema({
     name: String,
-    github_username: String,
-    bio: String,
+    poke_name: String,
     avatar_url: String,
-    techs: [String],
+    types: [String],
     location: {
         type: PointSchema,
         index: '2dsphere'
     },
 });
 
-module.exports = mongoose.model('Dev', DevSchema);
+module.exports = mongoose.model('Poke', PokeSchema);

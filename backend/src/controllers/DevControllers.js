@@ -1,46 +1,46 @@
 const axios = require('axios');
-const Dev = require('../models/Dev');
+const Poke = require('../models/Dev');
 
 // index, show, store, update, destroy
 
 module.exports = {
     async index(request, response){
-        const devs = await Dev.find();
+        const pokes = await Poke.find();
 
-        return response.json(devs);
+        return response.json(pokes);
     },
 
     async store(request, response){
-        const{ github_username, techs, latitude, longitude } = request.body;
+        const{ poke_name, types, latitude, longitude } = request.body;
 
-        let dev = await Dev.findOne({ github_username });
+        let poke = await Poke.findOne({ poke_name });
 
-        if(!dev) {
-            const apiResponse = await axios.get(`https://api.github.com/users/${github_username}`);
+        
+        if(!poke) {
+            const apiResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/${poke_name}`);
             // continuar
-        
-            const { name = login, avatar_url, bio  } = apiResponse.data;
             
-            console.log(name, avatar_url, bio, github_username);
+            const { name, sprites , id  } = apiResponse.data;
+
+            console.log(name , sprites.front_default , id, poke_name);
         
-            const techsArray = techs.split(',').map(tech => tech.trim());
-        
+            const typesArray = types.split(',').map(typ => typ.trim());
+
             const location = {
                 type: 'Point',
                 coordinates: [longitude,latitude],
             }
         
-            dev = await Dev.create({
-                github_username,
+            poke = await Poke.create({
+                poke_name,
                 name,
-                avatar_url,
-                bio,
-                techs: techsArray,
+                avatar_url: sprites.front_default,
+                types: typesArray,
                 location,
             });
 
         }
     
-        return response.json(dev);
+        return response.json(poke);
     }
 }
