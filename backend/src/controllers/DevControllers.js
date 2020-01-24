@@ -13,33 +13,29 @@ module.exports = {
     async store(request, response){
         const{ poke_name, types, latitude, longitude } = request.body;
 
-        let poke = await Poke.findOne({ poke_name });
 
+        const apiResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/${poke_name}`);
+        // continuar
         
-        if(!poke) {
-            const apiResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/${poke_name}`);
-            // continuar
-            
-            const { name, sprites , id  } = apiResponse.data;
+        const { name, sprites , id  } = apiResponse.data;
 
-            console.log(name , sprites.front_default , id, poke_name);
-        
-            const typesArray = types.split(',').map(typ => typ.trim());
+        console.log(name , sprites.front_default , id, poke_name);
+    
+        const typesArray = types.split(',').map(typ => typ.trim());
 
-            const location = {
-                type: 'Point',
-                coordinates: [longitude,latitude],
-            }
-        
-            poke = await Poke.create({
-                poke_name,
-                name,
-                avatar_url: sprites.front_default,
-                types: typesArray,
-                location,
-            });
-
+        const location = {
+            type: 'Point',
+            coordinates: [longitude,latitude],
         }
+    
+        const poke = await Poke.create({
+            poke_name,
+            name,
+            avatar_url: sprites.front_default,
+            types: typesArray,
+            location,
+        });
+
     
         return response.json(poke);
     }
