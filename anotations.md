@@ -7,6 +7,7 @@ express() ,
 nodemon(Atualização Dinamica) ,
 mongoose(MongoDB) ,
 axios(Chamada para outras API) ,
+cors(Remove proteção de porta),
 }
 
 ### METODOS HTTP:
@@ -29,6 +30,10 @@ Body: request.body (Dados para criação ou alteração de um registro)
 ### YARN
 
 yarn create react-app "folder_name"
+
+yarn add{
+    axios,
+}
 
 # REACT
 
