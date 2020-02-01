@@ -7,6 +7,7 @@ express() ,
 nodemon(Atualização Dinamica) ,
 mongoose(MongoDB) ,
 axios(Chamada para outras API) ,
+cors(Remove proteção de porta),
 }
 
 ### METODOS HTTP:
@@ -30,6 +31,10 @@ Body: request.body (Dados para criação ou alteração de um registro)
 
 yarn create react-app "folder_name"
 
+yarn add{
+    axios,
+}
+
 # REACT
 
 ## CONCEITOS
@@ -52,3 +57,16 @@ Plugin para auxiliar no complete do js e react
         "javascript": "javascriptreact",
     }
 
+# MOBILE
+
+## EXPO
+
+yarn global add expo-cli
+
+https://legacy.yarnpkg.com/en/docs/cli/global/
+
+## YARN ADD
+
+yarn add{
+    react-navigation(++ Dependencias), link = https://reactnavigation.org/docs/en/getting-started.html
+}

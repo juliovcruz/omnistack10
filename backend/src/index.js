@@ -1,16 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes')
+const cors = require('cors');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-eilqh.mongodb.net/test?retryWrites=true&w=majority' ,{
+mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-sabas.mongodb.net/test?retryWrites=true&w=majority' ,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
 });
 
 app.use(express.json());
+app.use(cors());
 
 // yarn add
 // express nodemon mongoose
@@ -35,4 +37,4 @@ Body: request.body (Dados para criação ou alteração de um registro)
 */
 
 app.use(routes);
-app.listen(666);
+app.listen(3333);
